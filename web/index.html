@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <style>
+        #log {
+            background-color: #000000;
+            color: #00ff00;
+            height: 200px;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Socket test</h1>
+        <div id="log"></div>
+        <script>
+            var sock = new WebSocket("ws://127.0.0.1:8081/");
+            log = document.getElementById('log');
+            log.innerHTML = '';
+            sock.onmessage = function (event) {
+                log.innerHTML += "RECEIVED: " + event.data + "<br />\r\n";
+            }
+        </script>
+    </body>
+</html>
